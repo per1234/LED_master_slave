@@ -4,46 +4,64 @@
 
 #if ARDUINO >= 100
 #include <Arduino.h>
-#include <String.h>
 #else
 #include <WProgram.h>
 #include <wiring.h>
-#include <String.h>
 #endif
 
 
 class Func_LED
 {
     public:
+        Func_LED *Master;
+        Func_LED *Slave;
+
         // SETUP 
-        Func_LED(byte pin,String functionString);
-        Func_LED(byte pin,byte *sync,String functionString);
         Func_LED(byte pin);
-        Func_LED(byte pin,byte *sync);
-        void setString(String functionString);
-        void setSpeed(byte value);
+        Func_LED(Func_LED *master);
+        Func_LED(byte pin,Func_LED *master);
+
+        // SET SLAVE 
+        void SetSlavesFade(byte value,int speedValue,unsigned long startingTime);
+        void SetSlavesFade(byte value,int speedValue);
+        void SetSlavesFade(byte value);
+        void SetSlavesSpeed(int speedValue);
+        void SetSlavesValue(byte value);
+        void SetSlavesinverted(bool inverted);
+        void SetSlavesTimeDelay(long delay);
+
+        // SET  
+        void SetFade(byte value,int speedValue,unsigned long startingTime);
+        void SetFade(byte value,int speedValue);
+        void SetFade(byte value);
+        void SetSpeed(int speedValue);
+        void SetValue(byte value);
+        void Setinverted(bool inverted);
+        void SetTimeDelay(long delay);
+
+        // COMMANDS 
         void run();
-        void delay(unsigned long delayValue);
-        void function(byte Count);
+        void runFor(unsigned long delayValue);
+
+        // FUNCTIONS
         void writeOutput();
-        void setinverted(bool inverted);
 
     private:
-        byte Sync;
-        byte *SyncCount;
-        byte FunctionCount;
 
+        bool FollowMaster = true;
+        int Pin = -1;
+        bool invertedPin;
 
-        byte Pin;
         byte Last_value;
         byte Current_value;
         byte Future_value;
-        String FunctionString;
-
-        unsigned long Speed = 2000;
+        byte master_Future_value;
         unsigned long starting_time;
-        bool fade=0;
-        bool invertedPin;
+        unsigned long master_starting_time;
+
+        long TimeDelay = 0;
+        unsigned long Speed = 2000;
+        unsigned long master_Speed = 2000;
 };
 
 #endif 
