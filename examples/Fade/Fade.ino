@@ -1,9 +1,10 @@
-#include <Func_LED.h>
+#include <LED_master_slave.h>
 
-Func_LED LED(8,B10000000+B11111111);
+LED_slave LED(4);
 
 void setup() 
 {
+   LED.SetFade(255,2000);
 }
 
 void loop() 
