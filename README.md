@@ -1,4 +1,4 @@
-# Func_LED (not tested, working progress)
+# LED_master_slave (not tested, working progress)
 [https://tinkersprojects.com/](https://tinkersprojects.com/)
 
 This is a LED Fadding control library for Arduino. Each LED can be controlled individually or by its master LED.   
