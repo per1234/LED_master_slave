@@ -1,10 +1,9 @@
 # LED_master_slave (not tested, working progress)
 [https://tinkersprojects.com/](https://tinkersprojects.com/)
 
-This is a LED Fadding control library for Arduino. Each LED can be controlled individually or by its master LED.   
-
 This library has not been tested, there will be a few bugs thoughout it. If you wish to use this library, it will be tested and complete soon.
 
+This is a LED Fadding control library for Arduino. Each LED can be controlled individually or by its master LED. This is to try and make it easier to manage LEDs. 
 
 ## Master Functions
 ### SETUP
@@ -12,14 +11,8 @@ This library has not been tested, there will be a few bugs thoughout it. If you 
 
 ### SET 
 #### void SetFade(byte value,int speedValue)
-This function is used to fade from the current set value to a different value. Value is used to set the fade. The value Byte variable are the value between 0 and 255. 0 is the LED completely off, 255 is the LED Completely on and all values between is a PWM percent. The speedValue is in milliseconds and is used from the start to the finish of the fade.
-
 #### void SetFade(byte value)
-This function is used to fade from the current set value to a different value. Value is used to set the fade. The value Byte variable are the value between 0 and 255. 0 is the LED completely off, 255 is the LED Completely on and all values between is a PWM percent.
-
 #### void SetSpeed(int speedValue)
-This Functions sets the speed of fades and the speed of colour functions. The speedValue is in milliseconds and is used from the start to the finish of the fade.
-
 #### void SetValue(byte value)
 #### void Setinverted(bool inverted)
 #### void SetTimeDelay(long delay)
