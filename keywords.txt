@@ -1,8 +1,8 @@
 
 # KEYWORD1 
-Func_LED	        KEYWORD1
+Func_LED	KEYWORD1
  
 # KEYWORD2 
-run             KEYWORD2
+run	KEYWORD2
 
 # KEYWORD3 
